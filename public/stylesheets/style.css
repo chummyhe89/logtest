@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.clear {
+  clear: both;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+}
+body {
+  padding-top: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+#header {
+  height: 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font: 12px;
+  background: #fff;
+  border: 1px solid #f00;
+  padding: 0px;
+}
+#footer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font: 10px;
+  text-align: right;
+  height: 30px;
+  border: 1px solid #f00;
+}
+#shell {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1000px;
+  font: 14px;
+  text-align: left;
+  background: #000;
+  color: #fff;
+  border: 1px solid #f00;
+  overflow-y: scroll;
+}
+ul#nav {
+  list-style: none;
+  width: 100%;
+  margin: 0px;
+}
+#nav li {
+  width: 20%;
+  text-align: center;
+  float: left;
+  margin-right: 13%;
+}
+/*li.t1
+ *float:left
+ * li.t3
+ * float:right
+ * li.t2
+ * margin-left:auto
+ * margin-right:auto
+ */
+div.log {
+  width: 100%;
+  word-break: break-all;
+}
+#imei p {
+  float: left;
+}
+#imei form {
+  float: left;
+  margin-left: 5px;
+}
