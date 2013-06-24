@@ -12,6 +12,8 @@
     "socket.io":"*",
     "socket.io-client":"*",
     "connect":"*",
-    "cookie":"*"
+    "cookie":"*",
+    "bufferhelper":"*",
+    "mongodb":"*"
   }
 }

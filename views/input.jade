@@ -1,11 +1,8 @@
-doctype 5
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    div#imei
-      p Your Imei:
-        form(action="/",method="get")
-          input(type="text",name="imei")
-          input(type="submit",value="Submit")
+extends layout
+block content
+  div#imei
+    p Your Imei:
+    form(action="/",method="get")
+      input(type="text",name="imei")
+      input(type="submit",value="确定",class="btn")
+    .clear

@@ -1,4 +1,7 @@
 extends layout
 
 block content
+   script(type='text/javascript')
+     window.onbeforeunload=function(){window.location='/logout';}
    #shell!= body
+   #result!=feedback

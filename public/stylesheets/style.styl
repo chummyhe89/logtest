@@ -1,9 +1,10 @@
-font-size = 14px
-stylefordiv(w,l,r)
+font_size = 14px
+stylefordiv(w,h,l,r)
   width:w
+  height:h
   margin-left:l
   margin-right:r
-border_style = 1px solid red
+border_style = 0px solid red
 
 *
   padding:0
@@ -16,33 +17,46 @@ border_style = 1px solid red
   font-size:0
 body
   padding-top: 50px
-  font: font-size "Lucida Grande", Helvetica, Arial, sans-serif
+  font: font_size "Lucida Grande", Helvetica, Arial, sans-serif
+  background-color:#00FFFF
 a
   color: #00B7FF
   text-decoration:none
 #header
-  height:50px
-  stylefordiv 80% auto auto
-  font: font-size - 2px
+  stylefordiv 80% 50px auto auto
+  font: font_size - 2px
   background:white
   border:border_style
   padding:0px
+  text-align:center
+  letter-spacing:2px
+  background-color:#8FBC8F
 #footer
-  stylefordiv 80% auto auto
-  font: font-size - 4px
+  stylefordiv 80% 30px auto auto
+  font: font_size - 4px
   text-align:right
-  height:30px
   border:border_style
+  background-color:#8FBC8F
+#content
+  stylefordiv 80% 1000px auto auto
 
 #shell
-  stylefordiv 80% auto auto
-  height:1000px
-  font:font-size
+  stylefordiv 100% 50% auto auto
+  font:font_size
   text-align:left
   background:black
-  color:white
+  color:green
   border:border_style
   overflow-y:scroll
+#result
+  stylefordiv 100% 50% auto auto
+  font:font_size
+  text-align:left
+  background:black
+  color:green
+  border:border_style
+  overflow-y:scroll
+  border-top 2px solid #00FFFF
 ul#nav 
   list-style:none
   width:100%  
@@ -65,9 +79,33 @@ ul#nav
 div.log
  width:100%
  word-break:break-all
+.info,.infoNoRule,.infoMultiRule,.infoVerRule,.infoMultiVerRule
+ width:100%
+ word-break:break-all
+.info
+ color:green
+.infoNoRule
+ color:red
+.infoMultiRule
+ color:#CC00FF
+.infoVerRule
+ color:#ffffff
+.infoMultiVerRule
+ color:#0000FF
+#imei
+  width 300px
+  height 50px
+  position absolute
+  top 50%
+  left 50%
+  margin -25px 0 0 -150px
 #imei p 
   float:left
+  color:white
 #imei form
   float:left
-  margin-left:5px
- 
+  margin-left 5px
+#content
+  background black 
+input.btn
+  margin-left 3px

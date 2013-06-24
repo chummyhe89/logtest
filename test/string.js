@@ -1,0 +1,2 @@
+str_json='{"data":[{"optvalue2":0,"v":1,"time":"2013060323","module":"song","value":1,"origin":"local","optvalue":0,"type":"listen_info"}],"param":{"uid":"865349010114952","f":"f62","v":"v5.4.0.2013051616","app":"ttpod","hid":"2150960394162470","s":"s200","rom":"GETEK%2Fc1215%2Fc1215%3A2.3.6%2FGRK39F%2F%3Auser%2Ftest-keys","active":1,"mid":"GETEK-A8","imsi":"460003504627214","splus":"unknown%2F10","tid":0,"net":1}}'
+console.log(str_json.slice(0,8));

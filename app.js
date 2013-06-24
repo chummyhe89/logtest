@@ -10,9 +10,26 @@ var express = require('express')
   , parseCookie = require('connect').utils.parseSignedCookies
   , MemoryStore = require('connect').middleware.session.MemoryStore
   , cookie = require('cookie')
+  , BufferHelper = require('bufferhelper')
   , path = require('path');
 
 //  , client = require('socket.io-client');
+
+Array.prototype.del = function(varElement)
+{
+    var numDeleteIndex = -1;
+    for (var i=0; i<this.length; i++)
+    {
+        // 严格比较，即类型与数值必须同时相等。
+        if (this[i] === varElement)
+        {
+            this.splice(i, 1);
+            numDeleteIndex = i;
+            break;
+        }
+    }
+    return numDeleteIndex;
+}
 
 var app = express()
   , usersImei = {} // 保存各个socket的imei
@@ -26,9 +43,10 @@ if(req._body) return next();
 req.body = req.body || '';
 if('GET' == req.method || 'HEAD' == req.method) return next();
 var buf = '';
-req.setEncoding('utf8');
-req.on('data',function(chunk){buf +=chunk});
-req.on('end',function(){req.body = buf;next();});
+var bH = new BufferHelper();
+//req.setEncoding('utf8');
+req.on('data',function(chunk){buf +=chunk;bH.concat(chunk);});
+req.on('end',function(){req.body = buf;req.buffer = bH.toBuffer();next();});
 };
 
 // all environments
@@ -86,12 +104,21 @@ io.sockets.on('connection',function(socket)
 	console.log('-----------------------------one connected--------------------------');
 	var session = socket.handshake.session;
 	var imei = session.imei;
-	usersImei[imei] = socket;	
-	
+	if(typeof usersImei[imei] == 'undefined') usersImei[imei] = new Array;
+	usersImei[imei].push(socket);	
 	socket.on('disconnect',function()
 	{
-		delete usersImei[imei];
-		session = null;
+		for(var i =0;i<usersImei[imei].length;i++)
+		{
+			if(usersImei[imei][i] == socket);
+				usersImei[imei].del(socket);
+				break;
+		}
+		if(usersImei[imei].length == 0)
+		{
+			delete usersImei[imei];
+			session = null;
+		}
 	}
 	);
 }
